@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.img300{
+    height: 300px;
+}
+
+.img80{
+    height: 50px;
+}
+
+.img150{
+    height: 150px;
+    width: 150px;
+}
+
+.img200{
+    height: 200px;
+}
+
+.form{
+    width: 50%;
+    margin: auto;
+}
+
+.filtre{
+    height: 60%;
+}
+
+.logo-vans{
+    height: 50px;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    height: 100vh;
+}
+
+/* .h3{
+    display: flex;
+    justify-content: space-between;
+    color: #bababa;
+    width: 112.6rem;
+    margin-left: 18.1rem;
+    
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+.h3 h3{
+    margin-top: 2.5rem;
+    font-weight: 500;
+} */
+
+header{
+    margin-bottom: -10px;
+    margin-left: -10px;
+}
+
+.navbar{
+    height: 50px;
+    background-color: white;
+    font-size: 15px;
+}
+
+.test{
+    position: absolute;
+    top: 45%;
+    left: 43%;
+    width: 15%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.produit{
+    gap: 5px;
+}
+
+.card{
+    border: none;
+}
+
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.test input{
+    height: 30px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.test button{
+    background-color: #D71C25;
+    color: white;
+}
+
+.test label{
+    font-size: 20px;
+}
+
+.img-bck{
+    background-image: url('../images/bkg.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+}

@@ -1,0 +1,52 @@
+<header>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('home')}}"><img class="logo-vans" src="{{ asset('images/vans-logo.jpeg')}}" alt="logo-vans"></a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ path('catalogue') }}">Catalogue</a>
+        </li>
+
+        {% if app.user %}
+
+
+                    <div class="dropdown">
+                      <div class="test2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            Back Office
+                        {% else %}
+                            {{ app.user.pseudo }}
+                        {% endif %}
+                        
+                        </button>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <li><a class="dropdown-item" href="{{path('app_admin_produit_show')}}">Gestion des produits</a></li>
+                            {% endif %}
+                                <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                        </ul>
+                            </div>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                                </li>
+                            {% endif %}
+                      </div>
+    </div>
+  </div>
+</nav>
+</header>

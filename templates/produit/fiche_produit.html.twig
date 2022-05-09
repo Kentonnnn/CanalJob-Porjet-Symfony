@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent()}} | {{ produit.titre|capitalize }}{% endblock %}
+
+{% block h1 %}{{ produit.titre|capitalize }}{% endblock %}
+
+{% block body %}
+
+    <a class="btn btn-dark mt-3" href="{{ path('catalogue') }}">Catalogue</a>
+
+    <div class="shadow col-md-6 mx-auto text-center m-4 p-4">
+    
+        {% if produit.image %}
+            <img src="{{ asset('images/upload/' ~ produit.image) }}" alt="" class="img300">
+        {% else %}
+            <img src="{{ asset('images/imageDefault.png') }}" alt="" class="img300">
+        {% endif %}
+
+        <h3>{{ produit.prix }} €</h3>
+
+        <h3>Description :</h3>
+
+        <p>
+            {% if produit.description %}
+                {{ produit.description }}
+            {% else %}
+                <span class="text-secondary fst-italic">Non renseignée</span>
+            {% endif %}  
+        </p>
+    </div>
+
+
+{% endblock %}

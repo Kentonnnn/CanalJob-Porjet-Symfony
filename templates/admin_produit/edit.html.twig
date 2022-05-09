@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} | Back Office | Modifier un produit {% endblock %}
+
+{% block h1 %}{{ produit.titre|capitalize}}{% endblock %}
+
+{% block body %}
+
+    {% for notification in app.flashes("success") %}
+        <div class="col-md-6 mx-auto alert alert-success text-center text-success">
+            {{ notification }}
+        </div>
+    {% endfor %}
+
+
+    <a class="btn btn-dark my-3 mx-auto" href="{{ path('app_admin_produit_show', {"id" : produit.id}) }}">Retour</a>
+
+<div class="col-md-8 mx-auto">
+    {{ form_start(form) }} 
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.titre)}}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.prix)}}
+            </div>
+        </div>
+    
+    {{ form_row(form.description) }}
+
+    {{ form_row(form.imageUpdate) }} 
+
+    <div id="zone" class="text-center">
+        {% if produit.image %}
+            <img src="{{ asset('images/upload/' ~ produit.image)}}" alt="" class="img200">
+
+            <a href="{{ path("images_supprimer", {"id" : produit.id}) }}">
+                <i class="text-danger" data-feather="trash"></i>
+            </a>
+        {% endif %}
+    </div>
+
+
+    <input type="submit" value="Modifier" class="btn btn-danger col-md-12 mt-3">
+
+    {{ form_end(form) }} 
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+
+    function loadFile(event)
+    {
+        let zone = document.getElementById("zone");
+        zone.innerHTML="";
+
+        let image = document.createElement("img");
+        image.setAttribute('src', URL.createObjectURL(event.target.files[0]));
+        image.setAttribute('class', 'img200');
+
+        zone.append(image);
+    }
+</script>
+
+
+{% endblock %}
+
